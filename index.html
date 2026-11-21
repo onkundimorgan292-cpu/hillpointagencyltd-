@@ -1,823 +1,193 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hillpoint Agency Ltd | Nairobi Homes &amp; 2-Min WhatsApp Viewing</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            obsidian: '#0A0A0A',
-            charcoal: '#141414',
-            surface: '#1B1B1B',
-            goldfish: '#FF9900',
-            goldfishBright: '#FFAD26',
-            goldfishDeep: '#CC7A00',
-            emeraldLive: '#10B981'
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    };
-  </script>
   <style>
+    :root {
+      --bg-black: #050505;
+      --bg-card: #111111;
+      --bg-elevated: #191919;
+      --goldish: #FFB000;
+      --goldish-bright: #FFC933;
+      --goldish-dim: rgba(255, 176, 0, 0.28);
+      --text-main: #FFFDF7;
+      --text-muted: #C8BEA8;
+      --live-green: #10B981;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
-      background-color: #0A0A0A;
-      color: #F8FAFC;
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--bg-black);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
       overflow-x: hidden;
     }
-    .font-display {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-    }
-    @keyframes livePulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.75); opacity: 0.25; }
-    }
-    .live-dot-ring {
-      animation: livePulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    .goldfish-glow {
-      box-shadow: 0 0 28px rgba(255, 153, 0, 0.24);
-    }
-    .card-hover {
-      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 153, 0, 0.72);
-      box-shadow: 0 18px 36px -14px rgba(255, 153, 0, 0.2);
-    }
-    .video-frame {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background-color: #0A0A0A;
-      overflow: hidden;
-    }
-    .video-player {
+
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    .container {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
-</head>
-<body class="bg-obsidian text-slate-100 antialiased selection:bg-goldfish selection:text-black">
-
-  <!-- Top Live Desk Strip -->
-  <div class="bg-charcoal border-b border-goldfish/25 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2.5">
-        <span class="relative flex h-2.5 w-2.5">
-          <span class="live-dot-ring absolute inline-flex h-full w-full rounded-full bg-emeraldLive opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emeraldLive"></span>
-        </span>
-        <span class="font-semibold text-emeraldLive tracking-wide uppercase">Live Nairobi Desk</span>
-        <span class="text-slate-400">•</span>
-        <span class="text-slate-300">Hillpoint Agency Ltd • Photos &amp; 2-Min Walkthrough Videos</span>
-      </div>
-      <div class="flex items-center gap-4 text-slate-300">
-        <span class="hidden sm:inline text-goldfish font-medium">Instant WhatsApp Viewing</span>
-        <span id="jsonSourceBadge" class="px-2 py-0.5 rounded bg-surface border border-goldfish/30 text-[11px] text-goldfish">
-          Loading properties.json
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation Header -->
-  <header class="sticky top-0 z-40 bg-obsidian/95 backdrop-blur-md border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between gap-4">
-      <a href="#top" class="flex items-center gap-3 group">
-        <div class="relative w-10 h-10 rounded-xl bg-charcoal border border-goldfish/60 flex items-center justify-center goldfish-glow">
-          <span class="font-display text-2xl font-bold text-goldfish leading-none">H</span>
-          <span class="absolute -top-1 -right-1 flex h-3 w-3">
-            <span class="live-dot-ring absolute inline-flex h-full w-full rounded-full bg-emeraldLive opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-emeraldLive border border-obsidian"></span>
-          </span>
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">Hillpoint Agency Ltd</span>
-            <span class="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emeraldLive/15 text-emeraldLive border border-emeraldLive/30">
-              <span class="w-1.5 h-1.5 rounded-full bg-emeraldLive"></span> LIVE
-            </span>
-          </div>
-          <p class="text-[11px] text-goldfish/90 tracking-wider uppercase font-medium">Nairobi Real Estate • WhatsApp Booking</p>
-        </div>
-      </a>
-
-      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#listings" class="hover:text-goldfish transition">Homes</a>
-        <a href="#videos" class="hover:text-goldfish transition">2-Min Videos</a>
-        <a href="#booking" class="hover:text-goldfish transition">WhatsApp Booking</a>
-      </nav>
-
-      <a id="headerWhatsAppBtn" href="#booking" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-bold text-xs sm:text-sm transition shadow-lg shadow-goldfish/20">
-        <span>Book on WhatsApp</span>
-      </a>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="top" class="relative pt-10 pb-14 lg:pt-14 lg:pb-20 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-charcoal border border-goldfish/40 text-xs font-medium text-goldfish">
-          <span class="w-2 h-2 rounded-full bg-emeraldLive animate-pulse"></span>
-          <span>Nairobi Homes For Sale • Verified Photos &amp; 2:00 Video Tours</span>
-        </div>
-
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-white">
-          Nairobi Homes Built to Sell Fast — <span class="text-goldfish">Watch 2-Min Tours &amp; Book on WhatsApp.</span>
-        </h1>
-
-        <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-          Explore curated Nairobi mansions, standalone villas, gated maisonettes, and apartments with <strong class="text-white">Hillpoint Agency Ltd</strong>. Every listing pairs high-resolution photos with a <strong class="text-goldfish">2-minute walkthrough video</strong> and direct WhatsApp viewing scheduling.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-3.5 pt-1">
-          <a href="#listings" class="px-6 py-3.5 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-bold text-sm transition shadow-lg shadow-goldfish/25">
-            Browse All 9 Homes
-          </a>
-          <a href="#videos" class="px-6 py-3.5 rounded-xl bg-charcoal hover:bg-surface text-white border border-goldfish/50 font-semibold text-sm transition">
-            Watch 2-Min Videos
-          </a>
-        </div>
-
-        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 max-w-xl">
-          <div>
-            <p class="text-2xl font-extrabold text-goldfish">9</p>
-            <p class="text-xs text-slate-400">Active Nairobi Homes</p>
-          </div>
-          <div>
-            <p class="text-2xl font-extrabold text-white">02:00</p>
-            <p class="text-xs text-slate-400">Walkthrough Video Length</p>
-          </div>
-          <div>
-            <p class="text-2xl font-extrabold text-emeraldLive">LIVE</p>
-            <p class="text-xs text-slate-400">WhatsApp Viewing Desk</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Featured Property Preview -->
-      <div class="lg:col-span-5">
-        <div class="bg-charcoal border border-goldfish/40 rounded-2xl overflow-hidden goldfish-glow">
-          <div class="relative aspect-[4/3] bg-surface overflow-hidden">
-            <img id="heroImg" src="images/House2.jpg" alt="Forest-Edge 5-Bedroom Villa + Rooftop Gazebo" onerror="applyPlaceholderImage(this, 'images/House2.jpg')" class="w-full h-full object-cover" />
-            <div class="absolute top-3 left-3 flex items-center gap-2 px-3 py-1 rounded-full bg-obsidian/90 border border-emeraldLive/50 text-xs font-semibold text-emeraldLive">
-              <span class="w-2 h-2 rounded-full bg-emeraldLive animate-pulse"></span>
-              <span>LIVE AGENT READY</span>
-            </div>
-            <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-goldfish text-black text-xs font-extrabold">
-              2:00 VIDEO TOUR
-            </div>
-          </div>
-          <div class="p-5 space-y-4">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <p class="text-xs uppercase tracking-wider text-goldfish font-semibold">Featured Listing • Kitisuru / Kiambu Rd</p>
-                <h2 class="font-display text-2xl font-bold text-white mt-0.5">Forest-Edge 5-Bedroom Villa + Rooftop Gazebo</h2>
-              </div>
-              <span class="text-lg font-extrabold text-goldfish shrink-0">KES 125M</span>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              5 Beds • 6 Baths • DSQ • Stone pillars, floor-to-ceiling glass, and rooftop gazebo. Open the photo &amp; 2-minute video viewer or lock a WhatsApp viewing slot.
-            </p>
-            <div class="flex items-center gap-3 pt-1">
-              <button type="button" onclick="openMediaModal('hp-house2', 'video')" class="flex-1 py-2.5 px-4 rounded-xl bg-surface hover:bg-white/10 border border-goldfish/50 text-goldfish font-semibold text-xs sm:text-sm transition">
-                Play 2-Min Tour &amp; Photos
-              </button>
-              <button type="button" onclick="selectPropertyForBooking('hp-house2')" class="flex-1 py-2.5 px-4 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-bold text-xs sm:text-sm transition">
-                Book on WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Property Catalog Section -->
-  <section id="listings" class="py-14 lg:py-20 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <p class="text-xs uppercase tracking-widest text-goldfish font-bold">Nairobi Property Catalog</p>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Available Houses For Sale</h2>
-        </div>
-
-        <div id="categoryFilters" class="flex flex-wrap gap-2">
-          <button type="button" data-filter="All" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-goldfish text-black transition">All (9)</button>
-          <button type="button" data-filter="Luxury Mansions" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-goldfish/50 transition">Mansions</button>
-          <button type="button" data-filter="Standalone Villas" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-goldfish/50 transition">Villas</button>
-          <button type="button" data-filter="Gated Maisonettes" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-goldfish/50 transition">Maisonettes</button>
-          <button type="button" data-filter="Apartments" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-goldfish/50 transition">Apartments</button>
-        </div>
-      </div>
-
-      <div id="propertiesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </div>
-  </section>
-
-  <!-- 2-Minute Walkthrough Videos Section -->
-  <section id="videos" class="py-14 lg:py-20 bg-charcoal/50 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-goldfish">
-            <span>2-Minute Video Showcase</span>
-            <span class="px-2 py-0.5 rounded bg-goldfish/15 border border-goldfish/40 text-[11px]">02:00 EACH</span>
-          </div>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Property Walkthrough Videos</h2>
-        </div>
-        <p class="text-xs sm:text-sm text-slate-400 max-w-md">
-          Each property includes a 2-minute walkthrough slot under <code class="text-goldfish">videos/</code> alongside photo galleries in <code class="text-goldfish">images/</code>.
-        </p>
-      </div>
-
-      <div id="videosGrid" class="grid md:grid-cols-3 gap-6"></div>
-    </div>
-  </section>
-
-  <!-- WhatsApp Booking Section -->
-  <section id="booking" class="py-14 lg:py-20">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-charcoal border border-goldfish/45 rounded-2xl p-6 sm:p-10 goldfish-glow">
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emeraldLive animate-pulse"></span>
-              <span class="text-xs font-bold uppercase tracking-wider text-emeraldLive">Direct WhatsApp Viewing Desk</span>
-            </div>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Book a House Viewing on WhatsApp</h2>
-          </div>
-          <span class="px-3 py-1.5 rounded-xl bg-surface border border-goldfish/40 text-xs font-semibold text-goldfish">
-            Hillpoint Agency Ltd • Nairobi
-          </span>
-        </div>
-
-        <form id="whatsappBookingForm" class="grid sm:grid-cols-2 gap-5 pt-6">
-          <div>
-            <label for="buyerName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Full Name</label>
-            <input id="buyerName" type="text" required placeholder="e.g. Brian Mwangi" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/15 focus:border-goldfish focus:outline-none text-sm text-white" />
-          </div>
-
-          <div>
-            <label for="buyerPhone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Phone / WhatsApp</label>
-            <input id="buyerPhone" type="tel" required placeholder="e.g. +254 712 345 678" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/15 focus:border-goldfish focus:outline-none text-sm text-white" />
-          </div>
-
-          <div>
-            <label for="propertySelect" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Select Nairobi Property</label>
-            <select id="propertySelect" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/15 focus:border-goldfish focus:outline-none text-sm text-white"></select>
-          </div>
-
-          <div>
-            <label for="viewingMode" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Viewing Option</label>
-            <select id="viewingMode" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/15 focus:border-goldfish focus:outline-none text-sm text-white">
-              <option value="In-Person Site Visit (Nairobi)">In-Person Site Visit (Nairobi)</option>
-              <option value="Live WhatsApp Video Tour + 2-Min Clip">Live WhatsApp Video Tour + 2-Min Clip</option>
-              <option value="Price &amp; Title Deed Inquiry">Price &amp; Title Deed Inquiry</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="viewingDate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Preferred Date</label>
-            <input id="viewingDate" type="date" required class="w-full px-4 py-3 rounded-xl bg-surface border border-white/15 focus:border-goldfish focus:outline-none text-sm text-white" />
-          </div>
-
-          <div>
-            <label for="agentWhatsApp" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Hillpoint WhatsApp Number</label>
-            <input id="agentWhatsApp" type="text" value="254700000000" class="w-full px-4 py-3 rounded-xl bg-surface border border-goldfish/40 focus:border-goldfish focus:outline-none text-sm text-goldfish font-semibold" />
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="buyerNotes" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Notes or Budget Preference</label>
-            <textarea id="buyerNotes" rows="2" placeholder="Share preferred viewing time or payment plan questions..." class="w-full px-4 py-3 rounded-xl bg-surface border border-white/15 focus:border-goldfish focus:outline-none text-sm text-white"></textarea>
-          </div>
-
-          <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-            <p class="text-xs text-slate-400">
-              Opens WhatsApp with a pre-filled viewing request for <strong class="text-white">Hillpoint Agency Ltd</strong>.
-            </p>
-            <button type="submit" class="px-7 py-3.5 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-extrabold text-sm transition shadow-lg shadow-goldfish/25">
-              Send Booking on WhatsApp
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-charcoal border-t border-white/10 py-8 text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5">
-        <span class="w-2 h-2 rounded-full bg-emeraldLive"></span>
-        <span class="font-bold text-white">Hillpoint Agency Ltd</span>
-        <span>• Nairobi, Kenya</span>
-      </div>
-      <div>
-        Data file: <code class="text-goldfish">properties.json</code> • Media folders: <code class="text-goldfish">images/</code> &amp; <code class="text-goldfish">videos/</code>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Media Modal (2-Min Video + Multi-Photo Viewer) -->
-  <div id="mediaModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm items-center justify-center p-4">
-    <div class="bg-charcoal border border-goldfish/50 rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl">
-      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
-        <div>
-          <span id="modalNeighborhood" class="text-xs font-bold uppercase tracking-wider text-goldfish"></span>
-          <h3 id="modalTitle" class="font-display text-2xl font-bold text-white"></h3>
-        </div>
-        <button type="button" onclick="closeMediaModal()" class="w-9 h-9 rounded-lg bg-surface hover:bg-white/15 text-white font-bold flex items-center justify-center">✕</button>
-      </div>
-
-      <div class="p-5 space-y-4">
-        <div class="flex items-center gap-2">
-          <button id="tabVideo" type="button" onclick="switchModalTab('video')" class="px-4 py-2 rounded-xl text-xs font-bold bg-goldfish text-black">
-            2:00 Video Walkthrough
-          </button>
-          <button id="tabPhotos" type="button" onclick="switchModalTab('photos')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-surface text-slate-300 border border-white/10">
-            Property Photos
-          </button>
-        </div>
-
-        <div id="videoPanel" class="space-y-3">
-          <div class="video-frame rounded-xl border border-white/10">
-            <video id="modalVideoPlayer" controls poster="images/House2.jpg" class="video-player">
-              <source id="modalVideoSource" src="videos/House2-walkthrough.mp4" type="video/mp4" />
-            </video>
-            <div id="videoFallbackNotice" class="hidden absolute inset-0 bg-obsidian/90 flex flex-col items-center justify-center p-6 text-center space-y-2">
-              <span class="px-3 py-1 rounded-full bg-goldfish/20 border border-goldfish/50 text-goldfish text-xs font-bold">2:00 WALKTHROUGH SLOT READY</span>
-              <p id="videoPathLabel" class="text-xs text-slate-300 font-mono"></p>
-              <p class="text-xs text-slate-400 max-w-md">Drop your 2-minute MP4 file into the <code class="text-goldfish">videos/</code> folder and it will play automatically here.</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between text-xs text-slate-300">
-            <span>Walkthrough Duration: <strong class="text-goldfish">02:00 (2 Minutes)</strong></span>
-            <span id="modalPrice" class="text-sm font-extrabold text-goldfish"></span>
-          </div>
-        </div>
-
-        <div id="photosPanel" class="hidden space-y-3">
-          <div class="aspect-[16/10] bg-obsidian rounded-xl overflow-hidden border border-white/10">
-            <img id="modalMainPhoto" src="images/House2.jpg" alt="Property photo" class="w-full h-full object-cover" />
-          </div>
-          <div id="modalThumbnails" class="flex items-center gap-2.5 overflow-x-auto pb-1"></div>
-        </div>
-
-        <div class="flex items-center justify-end gap-3 pt-2 border-t border-white/10">
-          <button type="button" onclick="closeMediaModal()" class="px-4 py-2.5 rounded-xl bg-surface text-slate-300 text-xs font-semibold">Close</button>
-          <button id="modalBookBtn" type="button" class="px-5 py-2.5 rounded-xl bg-goldfish hover:bg-goldfishBright text-black text-xs font-extrabold">
-            Book Viewing on WhatsApp
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const FALLBACK_PROPERTIES = [
-      {
-        "id": "hp-house1",
-        "title": "Signature 3-Storey Glass & Stone Mansion",
-        "neighborhood": "Lavington, Nairobi",
-        "priceKes": 135000000,
-        "priceDisplay": "KES 135M",
-        "category": "Luxury Mansions",
-        "bedrooms": 6,
-        "bathrooms": 7,
-        "hasDsq": true,
-        "sizeLabel": "3-Storey Corner Plot",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House1-walkthrough.mp4",
-        "videoPoster": "images/House1.jpg",
-        "photos": ["images/House1.jpg", "images/House2.jpg", "images/House3.jpg"],
-        "liveStatus": "Active Viewing",
-        "badge": "Flagship Listing",
-        "summary": "Triple-level modern residence featuring a full-height glass atrium, expansive cabro courtyard, rooftop terrace, and detached staff quarters in Lavington."
-      },
-      {
-        "id": "hp-house2",
-        "title": "Forest-Edge 5-Bedroom Villa + Rooftop Gazebo",
-        "neighborhood": "Kitisuru / Kiambu Rd",
-        "priceKes": 125000000,
-        "priceDisplay": "KES 125M",
-        "category": "Luxury Mansions",
-        "bedrooms": 5,
-        "bathrooms": 6,
-        "hasDsq": true,
-        "sizeLabel": "0.5 Acre Lush Lawn",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House2-walkthrough.mp4",
-        "videoPoster": "images/House2.jpg",
-        "photos": ["images/House2.jpg", "images/House1.jpg", "images/House4.jpg"],
-        "liveStatus": "Open Today",
-        "badge": "Panoramic Lawn",
-        "summary": "Natural dressed-stone pillars, floor-to-ceiling tinted glass panels, rooftop lounge deck, and wide manicured green grounds bordering mature trees."
-      },
-      {
-        "id": "hp-house3",
-        "title": "Runda Executive 5-Bedroom Mansion + DSQ",
-        "neighborhood": "Runda, Nairobi",
-        "priceKes": 148000000,
-        "priceDisplay": "KES 148M",
-        "category": "Luxury Mansions",
-        "bedrooms": 5,
-        "bathrooms": 6,
-        "hasDsq": true,
-        "sizeLabel": "0.5 Acre Gated Plot",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House3-walkthrough.mp4",
-        "videoPoster": "images/House3.jpg",
-        "photos": ["images/House3.jpg", "images/House2.jpg", "images/House4.jpg"],
-        "liveStatus": "Private Tour",
-        "badge": "Runda Prime",
-        "summary": "Crisp white exterior, dual solar water heating panels, covered entrance portico, perimeter wall, and generous wrap-around lawn in Runda."
-      },
-      {
-        "id": "hp-house4",
-        "title": "Karen Classic 5-Bedroom Standalone Villa",
-        "neighborhood": "Karen, Nairobi",
-        "priceKes": 110000000,
-        "priceDisplay": "KES 110M",
-        "category": "Standalone Villas",
-        "bedrooms": 5,
-        "bathrooms": 5,
-        "hasDsq": true,
-        "sizeLabel": "0.5 Acre Mature Grounds",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House4-walkthrough.mp4",
-        "videoPoster": "images/House4.jpg",
-        "photos": ["images/House4.jpg", "images/House2.jpg", "images/House5.jpg"],
-        "liveStatus": "Active Viewing",
-        "badge": "Mature Garden",
-        "summary": "Warm terracotta facade with natural stone plinth, wide bay windows, mature shade trees, and a sweeping front lawn ideal for family living."
-      },
-      {
-        "id": "hp-house5",
-        "title": "Architectural A-Frame 3-Bedroom Barn Villa",
-        "neighborhood": "Tigoni / Limuru Rd",
-        "priceKes": 46000000,
-        "priceDisplay": "KES 46M",
-        "category": "Standalone Villas",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "hasDsq": true,
-        "sizeLabel": "0.25 Acre Country Plot",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House5-walkthrough.mp4",
-        "videoPoster": "images/House5.jpg",
-        "photos": ["images/House5.jpg", "images/House4.jpg", "images/House8.jpg"],
-        "liveStatus": "Open Today",
-        "badge": "Designer Facade",
-        "summary": "Striking asymmetric roofline, statement stone chimney feature, double-height triangular glazing, and warm lantern sconces in a serene setting."
-      },
-      {
-        "id": "hp-house6",
-        "title": "Gated Court 4-Bedroom Detached Maisonettes",
-        "neighborhood": "Syokimau / Mombasa Rd",
-        "priceKes": 24500000,
-        "priceDisplay": "KES 24.5M",
-        "category": "Gated Maisonettes",
-        "bedrooms": 4,
-        "bathrooms": 4,
-        "hasDsq": true,
-        "sizeLabel": "50x100 ft Private Compound",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House6-walkthrough.mp4",
-        "videoPoster": "images/House6.jpg",
-        "photos": ["images/House6.jpg", "images/House7.jpg", "images/House8.jpg"],
-        "liveStatus": "Active Viewing",
-        "badge": "Gated Court",
-        "summary": "Double-leaf wrought-iron entry gates, cabro driveway, trimmed hedge border, solar panels, and balcony frontage inside a secure controlled court."
-      },
-      {
-        "id": "hp-house7",
-        "title": "Contemporary Gated Estate 4-Bedroom Townhomes",
-        "neighborhood": "Ruiru / Kamakis",
-        "priceKes": 21000000,
-        "priceDisplay": "KES 21M",
-        "category": "Gated Maisonettes",
-        "bedrooms": 4,
-        "bathrooms": 4,
-        "hasDsq": true,
-        "sizeLabel": "40x80 ft Controlled Court",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House7-walkthrough.mp4",
-        "videoPoster": "images/House7.jpg",
-        "photos": ["images/House7.jpg", "images/House6.jpg", "images/House8.jpg"],
-        "liveStatus": "Active Viewing",
-        "badge": "Fast Selling",
-        "summary": "Natural quarry-stone cladding, pitched gables, wide cabro internal roads, and clean modern lines in a fast-growing Nairobi commuter corridor."
-      },
-      {
-        "id": "hp-house8",
-        "title": "Modern Family 4-Bedroom Townhouse + Lawn",
-        "neighborhood": "Kitengela / Rongai",
-        "priceKes": 18500000,
-        "priceDisplay": "KES 18.5M",
-        "category": "Gated Maisonettes",
-        "bedrooms": 4,
-        "bathrooms": 4,
-        "hasDsq": false,
-        "sizeLabel": "40x80 ft Private Yard",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House8-walkthrough.mp4",
-        "videoPoster": "images/House8.jpg",
-        "photos": ["images/House8.jpg", "images/House7.jpg", "images/House6.jpg"],
-        "liveStatus": "Open Today",
-        "badge": "Family Lawn",
-        "summary": "Bold terracotta parapets, stone accent wall, upper balcony, paved driveway, and lush front lawn ready for immediate family occupancy."
-      },
-      {
-        "id": "hp-house9",
-        "title": "Skyview 3-Bedroom Luxury Apartments + DSQ",
-        "neighborhood": "Kilimani / Kileleshwa",
-        "priceKes": 22000000,
-        "priceDisplay": "KES 22M",
-        "category": "Apartments",
-        "bedrooms": 3,
-        "bathrooms": 3,
-        "hasDsq": true,
-        "sizeLabel": "185 sqm Spacious Layout",
-        "videoDuration": "02:00",
-        "videoSrc": "videos/House9-walkthrough.mp4",
-        "videoPoster": "images/House9.jpg",
-        "photos": ["images/House9.jpg", "images/House1.jpg", "images/House3.jpg"],
-        "liveStatus": "Active Viewing",
-        "badge": "Central Nairobi",
-        "summary": "High-rise residence with private balconies, landscaped courtyard with rock garden and palm feature, ample resident parking, and strong rental yield."
-      }
-    ];
-
-    let properties = [...FALLBACK_PROPERTIES];
-    let activeCategory = 'All';
-    let modalProperty = null;
-
-    function applyPlaceholderImage(imgEl, labelText) {
-      if (imgEl.dataset.fallbackApplied) return;
-      imgEl.dataset.fallbackApplied = 'true';
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
-        <rect width="800" height="560" fill="#141414"/>
-        <rect x="24" y="24" width="752" height="512" rx="18" fill="none" stroke="#FF9900" stroke-width="2" stroke-opacity="0.45"/>
-        <text x="400" y="255" fill="#FF9900" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">HILLPOINT AGENCY LTD • NAIROBI</text>
-        <text x="400" y="295" fill="#E2E8F0" font-family="monospace" font-size="18" text-anchor="middle">${labelText}</text>
-        <text x="400" y="330" fill="#94A3B8" font-family="sans-serif" font-size="14" text-anchor="middle">Place photo inside ./images/ folder</text>
-      </svg>`;
-      imgEl.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    async function loadPropertiesJson() {
-      const badge = document.getElementById('jsonSourceBadge');
-      try {
-        const res = await fetch('./properties.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          properties = data;
-          badge.textContent = 'Loaded: properties.json (' + properties.length + ')';
-        }
-      } catch (err) {
-        badge.textContent = 'Using embedded catalog (' + properties.length + ')';
-      }
-      populateBookingSelect();
-      renderProperties();
-      renderVideoShowcase();
+    .live-dot {
+      position: relative;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background-color: var(--live-green);
+      flex-shrink: 0;
     }
 
-    function renderProperties() {
-      const grid = document.getElementById('propertiesGrid');
-      const filtered = activeCategory === 'All'
-        ? properties
-        : properties.filter(p => p.category === activeCategory);
-
-      grid.innerHTML = filtered.map(prop => `
-        <article class="bg-charcoal border border-white/10 rounded-2xl overflow-hidden flex flex-col card-hover">
-          <div class="relative aspect-[4/3] bg-surface overflow-hidden">
-            <img
-              src="${prop.photos[0]}"
-              alt="${prop.title}"
-              onerror="applyPlaceholderImage(this, '${prop.photos[0]}')"
-              class="w-full h-full object-cover"
-            />
-            <div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-obsidian/90 border border-emeraldLive/40 text-[11px] font-semibold text-emeraldLive">
-              <span class="w-1.5 h-1.5 rounded-full bg-emeraldLive animate-pulse"></span>
-              <span>${prop.liveStatus}</span>
-            </div>
-            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-goldfish text-black text-[11px] font-extrabold">
-              2:00 VIDEO
-            </div>
-            <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-obsidian/90 border border-goldfish/40 text-xs font-extrabold text-goldfish">
-              ${prop.priceDisplay}
-            </div>
-          </div>
-
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
-            <div class="space-y-2">
-              <p class="text-[11px] uppercase tracking-wider font-semibold text-goldfish">${prop.neighborhood} • ${prop.category}</p>
-              <h3 class="font-display text-2xl font-bold text-white leading-snug">${prop.title}</h3>
-              <p class="text-xs text-slate-300 leading-relaxed">${prop.summary}</p>
-              <div class="flex flex-wrap gap-2 pt-1 text-[11px] text-slate-300">
-                <span class="px-2.5 py-1 rounded-md bg-surface border border-white/10">${prop.bedrooms} Beds</span>
-                <span class="px-2.5 py-1 rounded-md bg-surface border border-white/10">${prop.bathrooms} Baths</span>
-                <span class="px-2.5 py-1 rounded-md bg-surface border border-white/10">${prop.hasDsq ? 'DSQ Included' : 'Private Yard'}</span>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-2.5 pt-2 border-t border-white/10">
-              <button type="button" onclick="openMediaModal('${prop.id}', 'video')" class="py-2.5 px-3 rounded-xl bg-surface hover:bg-white/10 border border-goldfish/40 text-goldfish font-semibold text-xs transition">
-                2-Min Video &amp; Photos
-              </button>
-              <button type="button" onclick="selectPropertyForBooking('${prop.id}')" class="py-2.5 px-3 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-bold text-xs transition">
-                Book on WhatsApp
-              </button>
-            </div>
-          </div>
-        </article>
-      `).join('');
+    .live-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      border: 2px solid var(--live-green);
+      animation: pulseRing 1.7s infinite;
     }
 
-    function renderVideoShowcase() {
-      const grid = document.getElementById('videosGrid');
-      const featuredVideos = properties.slice(0, 3);
-      grid.innerHTML = featuredVideos.map(prop => `
-        <div class="bg-obsidian border border-white/10 rounded-2xl overflow-hidden card-hover">
-          <div class="video-frame group cursor-pointer" onclick="openMediaModal('${prop.id}', 'video')">
-            <img
-              src="${prop.videoPoster || prop.photos[0]}"
-              alt="${prop.title} 2-minute walkthrough"
-              onerror="applyPlaceholderImage(this, '${prop.photos[0]}')"
-              class="video-player opacity-85 group-hover:scale-105 transition duration-300"
-            />
-            <div class="absolute inset-0 bg-black/35 flex items-center justify-center">
-              <div class="w-14 h-14 rounded-full bg-goldfish text-black font-extrabold flex items-center justify-center shadow-xl">
-                ▶
-              </div>
-            </div>
-            <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-obsidian/90 border border-goldfish/50 text-xs font-bold text-goldfish">
-              ${prop.videoDuration || '02:00'}
-            </span>
-          </div>
-          <div class="p-4 flex items-center justify-between gap-3">
-            <div>
-              <p class="text-[11px] text-goldfish font-semibold">${prop.neighborhood}</p>
-              <h3 class="font-bold text-sm text-white">${prop.title}</h3>
-            </div>
-            <span class="text-xs font-extrabold text-goldfish shrink-0">${prop.priceDisplay}</span>
-          </div>
-        </div>
-      `).join('');
+    @keyframes pulseRing {
+      0% { transform: scale(0.75); opacity: 0.9; }
+      100% { transform: scale(1.85); opacity: 0; }
     }
 
-    function populateBookingSelect() {
-      const select = document.getElementById('propertySelect');
-      select.innerHTML = properties.map(p =>
-        `<option value="${p.id}">${p.title} — ${p.neighborhood} (${p.priceDisplay})</option>`
-      ).join('');
+    .top-strip {
+      background-color: #0B0B0B;
+      border-bottom: 1px solid var(--goldish-dim);
+      font-size: 12px;
+      padding: 10px 0;
     }
 
-    function selectPropertyForBooking(id) {
-      const select = document.getElementById('propertySelect');
-      if (select) select.value = id;
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    .top-strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
 
-    function openMediaModal(id, initialTab = 'video') {
-      const prop = properties.find(p => p.id === id) || properties[0];
-      modalProperty = prop;
-
-      document.getElementById('modalNeighborhood').textContent = `${prop.neighborhood} • ${prop.category}`;
-      document.getElementById('modalTitle').textContent = prop.title;
-      document.getElementById('modalPrice').textContent = `${prop.priceDisplay} (KES ${prop.priceKes.toLocaleString()})`;
-
-      const videoPlayer = document.getElementById('modalVideoPlayer');
-      const videoSource = document.getElementById('modalVideoSource');
-      const fallbackNotice = document.getElementById('videoFallbackNotice');
-      const videoPathLabel = document.getElementById('videoPathLabel');
-
-      videoPlayer.poster = prop.videoPoster || prop.photos[0];
-      videoSource.src = prop.videoSrc || 'videos/House2-walkthrough.mp4';
-      videoPathLabel.textContent = `Source path: ./${prop.videoSrc || 'videos/House2-walkthrough.mp4'} (2:00)`;
-      fallbackNotice.classList.add('hidden');
-
-      videoPlayer.onerror = () => fallbackNotice.classList.remove('hidden');
-      videoSource.onerror = () => fallbackNotice.classList.remove('hidden');
-      videoPlayer.load();
-
-      const mainPhoto = document.getElementById('modalMainPhoto');
-      const thumbs = document.getElementById('modalThumbnails');
-      mainPhoto.dataset.fallbackApplied = '';
-      mainPhoto.src = prop.photos[0];
-      mainPhoto.onerror = () => applyPlaceholderImage(mainPhoto, prop.photos[0]);
-
-      thumbs.innerHTML = prop.photos.map((photoPath, idx) => `
-        <button type="button" onclick="setModalPhoto('${photoPath}')" class="w-20 h-14 rounded-lg overflow-hidden border ${idx === 0 ? 'border-goldfish' : 'border-white/15'} shrink-0 bg-surface">
-          <img src="${photoPath}" alt="Photo ${idx + 1}" onerror="applyPlaceholderImage(this, '${photoPath}')" class="w-full h-full object-cover" />
-        </button>
-      `).join('');
-
-      document.getElementById('modalBookBtn').onclick = () => {
-        closeMediaModal();
-        selectPropertyForBooking(prop.id);
-      };
-
-      switchModalTab(initialTab);
-      const modal = document.getElementById('mediaModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+    .live-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--goldish);
+      font-weight: 700;
     }
 
-    function setModalPhoto(path) {
-      const mainPhoto = document.getElementById('modalMainPhoto');
-      mainPhoto.dataset.fallbackApplied = '';
-      mainPhoto.src = path;
-      mainPhoto.onerror = () => applyPlaceholderImage(mainPhoto, path);
+    .status-pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--goldish-dim);
+      background-color: var(--bg-card);
+      color: var(--goldish-bright);
+      font-size: 11px;
+      font-weight: 600;
     }
 
-    function switchModalTab(tab) {
-      const videoPanel = document.getElementById('videoPanel');
-      const photosPanel = document.getElementById('photosPanel');
-      const tabVideo = document.getElementById('tabVideo');
-      const tabPhotos = document.getElementById('tabPhotos');
-      const videoPlayer = document.getElementById('modalVideoPlayer');
-
-      if (tab === 'video') {
-        videoPanel.classList.remove('hidden');
-        photosPanel.classList.add('hidden');
-        tabVideo.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-goldfish text-black';
-        tabPhotos.className = 'px-4 py-2 rounded-xl text-xs font-semibold bg-surface text-slate-300 border border-white/10';
-      } else {
-        videoPlayer.pause();
-        videoPanel.classList.add('hidden');
-        photosPanel.classList.remove('hidden');
-        tabPhotos.className = 'px-4 py-2 rounded-xl text-xs font-bold bg-goldfish text-black';
-        tabVideo.className = 'px-4 py-2 rounded-xl text-xs font-semibold bg-surface text-slate-300 border border-white/10';
-      }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(5, 5, 5, 0.95);
+      border-bottom: 1px solid var(--goldish-dim);
+      backdrop-filter: blur(10px);
     }
 
-    function closeMediaModal() {
-      const videoPlayer = document.getElementById('modalVideoPlayer');
-      videoPlayer.pause();
-      const modal = document.getElementById('mediaModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
     }
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeCategory = btn.dataset.filter;
-        document.querySelectorAll('.filter-btn').forEach(b => {
-          b.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-goldfish/50 transition';
-        });
-        btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-goldfish text-black transition';
-        renderProperties();
-      });
-    });
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
 
-    document.getElementById('whatsappBookingForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('buyerName').value.trim();
-      const phone = document.getElementById('buyerPhone').value.trim();
-      const propId = document.getElementById('propertySelect').value;
-      const mode = document.getElementById('viewingMode').value;
-      const date = document.getElementById('viewingDate').value;
-      const notes = document.getElementById('buyerNotes').value.trim();
-      const rawWa = document.getElementById('agentWhatsApp').value.replace(/[^0-9]/g, '') || '254700000000';
+    .brand-badge {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--goldish);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--goldish);
+      font-size: 24px;
+      font-weight: 700;
+    }
 
-      const prop = properties.find(p => p.id === propId) || properties[0];
-      const message = [
-        'Hello Hillpoint Agency Ltd (Nairobi),',
-        'I would like to book a viewing:',
-        `• Property: ${prop.title} (${prop.neighborhood})`,
-        `• Price: ${prop.priceDisplay}`,
-        `• Option: ${mode}`,
-        `• Preferred Date: ${date || 'Flexible'}`,
-        `• Client: ${name} (${phone})`,
-        notes ? `• Notes: ${notes}` : ''
-      ].filter(Boolean).join('\n');
+    .brand-badge .live-dot {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      border: 2px solid var(--bg-black);
+    }
 
-      const waUrl = `https://wa.me/${rawWa}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
-    });
+    .brand-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--goldish-bright);
+      line-height: 1.1;
+    }
 
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('viewingDate').value = today;
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
 
-    loadPropertiesJson();
-  </script>
-</body>
-</html>
+    .nav-links {
+      display: none;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--goldish); }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--goldish);
+      color: #050505;
+      border: 1px solid var(--goldish-bright);
+      border-radius: 12px;
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
