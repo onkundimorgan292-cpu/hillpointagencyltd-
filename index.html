@@ -191,3 +191,1199 @@
       text-decoration: none;
       cursor: pointer;
       transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--goldish-bright);
+      transform: translateY(-1px);
+    }
+
+    .btn-dark-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--bg-elevated);
+      color: var(--goldish);
+      border: 1px solid var(--goldish);
+      border-radius: 12px;
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-dark-gold:hover { background-color: #242014; }
+
+    .hero {
+      padding: 44px 0 56px;
+      border-bottom: 1px solid var(--goldish-dim);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid { grid-template-columns: 1.15fr 0.85fr; }
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.06;
+      color: var(--text-main);
+      margin: 14px 0 16px;
+    }
+
+    .hero h1 span { color: var(--goldish); }
+
+    .hero p.lead {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 22px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--goldish-dim);
+      max-width: 520px;
+    }
+
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--goldish);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .featured-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--goldish);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .photo-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background-color: var(--bg-elevated);
+      overflow: hidden;
+    }
+
+    .photo-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge-live {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background-color: rgba(5, 5, 5, 0.88);
+      border: 1px solid var(--goldish);
+      color: var(--goldish-bright);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .badge-duration {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background-color: var(--goldish);
+      color: #050505;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .featured-body { padding: 18px; }
+
+    .featured-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .price-tag {
+      color: var(--goldish);
+      font-weight: 800;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--goldish-dim);
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--goldish);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.6vw, 40px);
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--goldish-dim);
+      background-color: var(--bg-card);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background-color: var(--goldish);
+      color: #050505;
+      border-color: var(--goldish-bright);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    @media (min-width: 640px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .property-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--goldish-dim);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .property-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--goldish);
+    }
+
+    .property-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .meta-chip {
+      padding: 4px 9px;
+      border-radius: 8px;
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--goldish-dim);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: var(--bg-elevated);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--goldish-dim);
+    }
+
+    .video-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-poster-btn {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: var(--bg-elevated);
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      display: block;
+    }
+
+    .video-poster-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .play-circle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background-color: var(--goldish);
+      color: #050505;
+      font-size: 18px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--goldish-bright);
+    }
+
+    .booking-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--goldish);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .form-grid { grid-template-columns: repeat(2, 1fr); }
+      .span-2 { grid-column: span 2; }
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--goldish);
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--goldish-dim);
+      background-color: var(--bg-elevated);
+      color: var(--text-main);
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--goldish);
+      border-color: var(--goldish);
+    }
+
+    footer {
+      padding: 26px 0;
+      background-color: #080808;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background-color: rgba(0, 0, 0, 0.88);
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal-card {
+      width: 100%;
+      max-width: 760px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--goldish);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--goldish-dim);
+    }
+
+    .close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--goldish-dim);
+      background-color: var(--bg-elevated);
+      color: var(--goldish);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .modal-body { padding: 18px 20px; }
+
+    .modal-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .thumbs-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+      padding-bottom: 4px;
+    }
+
+    .thumb-btn {
+      width: 78px;
+      height: 54px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid var(--goldish-dim);
+      background-color: var(--bg-elevated);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .thumb-btn.active { border-color: var(--goldish); }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .fallback-note {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(5, 5, 5, 0.92);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      gap: 8px;
+    }
+
+    .fallback-note.show { display: flex; }
+  </style>
+</head>
+<body>
+
+  <div class="top-strip">
+    <div class="container top-strip-inner">
+      <div class="live-label">
+        <span class="live-dot"></span>
+        <span>LIVE NAIROBI DESK • HILLPOINT AGENCY LTD</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--text-muted);">Photos &amp; 2-Min Videos • WhatsApp Booking</span>
+        <span id="jsonStatusPill" class="status-pill">Loading catalog...</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <div class="brand-badge">
+          <span class="font-display">H</span>
+          <span class="live-dot"></span>
+        </div>
+        <div>
+          <div class="brand-title font-display">Hillpoint Agency Ltd</div>
+          <div class="brand-sub">Nairobi Real Estate • WhatsApp Viewing</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#houses">Houses</a>
+        <a href="#videos">2-Min Videos</a>
+        <a href="#booking">Book on WhatsApp</a>
+      </nav>
+
+      <a href="#booking" class="btn-gold">
+        <span class="live-dot"></span>
+        <span>WhatsApp Booking</span>
+      </a>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="status-pill" style="display:inline-flex;align-items:center;gap:8px;">
+          <span class="live-dot"></span>
+          <span>Nairobi Homes For Sale • Photos &amp; 2:00 Video Tours</span>
+        </div>
+        <h1 class="font-display">
+          Nairobi Homes Built to Move — <span>Watch 2-Min Tours &amp; Book on WhatsApp.</span>
+        </h1>
+        <p class="lead">
+          Browse Nairobi mansions, standalone villas, gated maisonettes, and apartments with <strong>Hillpoint Agency Ltd</strong>. Every home features photos, a <strong>2-minute walkthrough video</strong>, and instant WhatsApp viewing booking.
+        </p>
+        <div class="hero-actions">
+          <a href="#houses" class="btn-gold">View All 9 Houses</a>
+          <a href="#videos" class="btn-dark-gold">Watch 2-Min Videos</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">9</div>
+            <div class="stat-label">Nairobi Listings</div>
+          </div>
+          <div>
+            <div class="stat-num">02:00</div>
+            <div class="stat-label">Walkthrough Video</div>
+          </div>
+          <div>
+            <div class="stat-num" style="display:flex;align-items:center;gap:8px;"><span class="live-dot"></span>LIVE</div>
+            <div class="stat-label">WhatsApp Desk</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="photo-stage">
+          <img
+            id="heroPhoto"
+            src="images/1795296819857.jpg"
+            alt="Forest-Edge 5-Bedroom Villa + Rooftop Gazebo"
+            onerror="handlePhotoError(this, 'images/1795296819857.jpg')"
+          />
+          <div class="badge-live">
+            <span class="live-dot"></span>
+            <span>LIVE VIEWING</span>
+          </div>
+          <div class="badge-duration">02:00 VIDEO</div>
+        </div>
+        <div class="featured-body">
+          <div class="featured-top">
+            <div>
+              <div class="section-eyebrow">Kitisuru / Kiambu Rd • Featured</div>
+              <h2 class="font-display" style="font-size:26px;color:var(--text-main);">Forest-Edge 5-Bedroom Villa + Rooftop Gazebo</h2>
+            </div>
+            <div class="price-tag">KES 125M</div>
+          </div>
+          <p style="font-size:13px;color:var(--text-muted);">
+            5 Beds • 6 Baths • DSQ • Stone pillars, floor-to-ceiling tinted glass, rooftop deck, and lush green compound.
+          </p>
+          <div class="card-actions">
+            <button type="button" onclick="openPropertyModal('hp-house2', 'video')" class="btn-dark-gold">2-Min Video &amp; Photos</button>
+            <button type="button" onclick="choosePropertyAndScroll('hp-house2')" class="btn-gold">Book on WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="houses" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Nairobi Property Catalog</div>
+          <h2 class="section-title font-display">Houses For Sale</h2>
+        </div>
+        <div id="filterBar" class="filters">
+          <button type="button" data-cat="All" class="filter-btn active">All (9)</button>
+          <button type="button" data-cat="Luxury Mansions" class="filter-btn">Mansions</button>
+          <button type="button" data-cat="Standalone Villas" class="filter-btn">Villas</button>
+          <button type="button" data-cat="Gated Maisonettes" class="filter-btn">Maisonettes</button>
+          <button type="button" data-cat="Apartments" class="filter-btn">Apartments</button>
+        </div>
+      </div>
+      <div id="housesGrid" class="grid-3"></div>
+    </div>
+  </section>
+
+  <section id="videos" class="section" style="background-color:#090909;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">02:00 Walkthrough Showcase</div>
+          <h2 class="section-title font-display">2-Minute House Videos</h2>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);max-width:420px;">
+          Mapped directly to your uploaded <strong style="color:var(--goldish);">images/</strong> and <strong style="color:var(--goldish);">videos/</strong> files.
+        </p>
+      </div>
+      <div id="videosGrid" class="grid-3"></div>
+    </div>
+  </section>
+
+  <section id="booking" class="section">
+    <div class="container">
+      <div class="booking-box">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--goldish-dim);">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:var(--goldish);">
+              <span class="live-dot"></span>
+              <span>INSTANT WHATSAPP RESERVATION</span>
+            </div>
+            <h2 class="font-display" style="font-size:34px;color:var(--text-main);margin-top:2px;">Book a Viewing on WhatsApp</h2>
+          </div>
+          <span class="status-pill">Hillpoint Agency Ltd • Nairobi</span>
+        </div>
+
+        <form id="bookingForm" class="form-grid">
+          <div>
+            <label for="clientName">Your Name</label>
+            <input id="clientName" type="text" required placeholder="e.g. Brian Mwangi" />
+          </div>
+          <div>
+            <label for="clientPhone">Your WhatsApp / Phone</label>
+            <input id="clientPhone" type="tel" required placeholder="e.g. +254 712 345 678" />
+          </div>
+          <div>
+            <label for="houseSelect">Choose House</label>
+            <select id="houseSelect"></select>
+          </div>
+          <div>
+            <label for="bookingType">Booking Type</label>
+            <select id="bookingType">
+              <option value="In-Person Site Viewing (Nairobi)">In-Person Site Viewing (Nairobi)</option>
+              <option value="2-Min Walkthrough + Live WhatsApp Tour">2-Min Walkthrough + Live WhatsApp Tour</option>
+              <option value="Price, Payment Plan &amp; Title Inquiry">Price, Payment Plan &amp; Title Inquiry</option>
+            </select>
+          </div>
+          <div>
+            <label for="bookingDate">Preferred Viewing Date</label>
+            <input id="bookingDate" type="date" required />
+          </div>
+          <div>
+            <label for="agencyWa">Hillpoint Agency WhatsApp Number</label>
+            <input id="agencyWa" type="text" value="254700000000" />
+          </div>
+          <div class="span-2">
+            <label for="clientNote">Message / Preferred Time</label>
+            <textarea id="clientNote" rows="2" placeholder="Add preferred time or questions..."></textarea>
+          </div>
+          <div class="span-2" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;">
+            <span style="font-size:12px;color:var(--text-muted);">Opens WhatsApp with your house selection and viewing details pre-filled.</span>
+            <button type="submit" class="btn-gold">Send Booking on WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="live-dot"></span>
+        <strong style="color:var(--goldish);">Hillpoint Agency Ltd</strong>
+        <span>• Nairobi, Kenya</span>
+      </div>
+      <div>Data: <strong style="color:var(--goldish);">properties.json</strong> • Folders: <strong style="color:var(--goldish);">images/</strong> &amp; <strong style="color:var(--goldish);">videos/</strong></div>
+    </div>
+  </footer>
+
+  <div id="mediaModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <div id="modalMeta" class="section-eyebrow"></div>
+          <h3 id="modalHeading" class="font-display" style="font-size:26px;color:var(--text-main);"></h3>
+        </div>
+        <button type="button" onclick="closePropertyModal()" class="close-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <button id="btnTabVideo" type="button" onclick="setModalMode('video')" class="filter-btn active">2:00 Video Walkthrough</button>
+          <button id="btnTabPhotos" type="button" onclick="setModalMode('photos')" class="filter-btn">Photos</button>
+        </div>
+
+        <div id="modalVideoSection">
+          <div class="video-box">
+            <video id="modalVideo" class="video-media" controls poster="images/1795296819857.jpg">
+              <source id="modalVideoSrc" src="videos/e04762648fa300144bb3f155807" />
+            </video>
+            <div id="videoMissingBox" class="fallback-note">
+              <div class="status-pill">2:00 WALKTHROUGH VIDEO</div>
+              <p id="videoFileHint" style="font-size:13px;color:var(--goldish);font-weight:700;"></p>
+              <p style="font-size:12px;color:var(--text-muted);max-width:420px;">
+                Check that the file in <strong style="color:var(--goldish);">videos/</strong> matches this path and is a supported browser video stream.
+              </p>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;">
+            <span style="color:var(--text-muted);">Length: <strong style="color:var(--goldish);">02:00 (2 Minutes)</strong></span>
+            <span id="modalPrice" class="price-tag"></span>
+          </div>
+        </div>
+
+        <div id="modalPhotosSection" style="display:none;">
+          <div class="photo-stage" style="border-radius:12px;border:1px solid var(--goldish-dim);">
+            <img id="modalPhotoMain" src="images/1795296819857.jpg" alt="House photo" />
+          </div>
+          <div id="modalThumbs" class="thumbs-row"></div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--goldish-dim);">
+          <button type="button" onclick="closePropertyModal()" class="btn-dark-gold">Close</button>
+          <button id="modalBookNow" type="button" class="btn-gold">Book on WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const EMBEDDED_PROPERTIES = [
+      {
+        "id": "hp-house1",
+        "title": "Signature 3-Storey Glass & Stone Mansion",
+        "neighborhood": "Lavington, Nairobi",
+        "priceKes": 135000000,
+        "priceDisplay": "KES 135M",
+        "category": "Luxury Mansions",
+        "bedrooms": 6,
+        "bathrooms": 7,
+        "hasDsq": true,
+        "sizeLabel": "3-Storey Corner Plot",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+        "videoPoster": "images/1795296803288.jpg",
+        "photos": [
+          "images/1795296803288.jpg",
+          "images/1795296819857.jpg",
+          "images/1795296865817.jpg"
+        ],
+        "liveStatus": "Active Viewing",
+        "badge": "Flagship Listing",
+        "summary": "Triple-level modern residence featuring a full-height glass atrium, expansive cabro courtyard, rooftop terrace, and detached staff quarters in Lavington."
+      },
+      {
+        "id": "hp-house2",
+        "title": "Forest-Edge 5-Bedroom Villa + Rooftop Gazebo",
+        "neighborhood": "Kitisuru / Kiambu Rd",
+        "priceKes": 125000000,
+        "priceDisplay": "KES 125M",
+        "category": "Luxury Mansions",
+        "bedrooms": 5,
+        "bathrooms": 6,
+        "hasDsq": true,
+        "sizeLabel": "0.5 Acre Lush Lawn",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/e04762648fa300144bb3f155807",
+        "videoPoster": "images/1795296819857.jpg",
+        "photos": [
+          "images/1795296819857.jpg",
+          "images/1795296803288.jpg",
+          "images/1795296884370.jpg"
+        ],
+        "liveStatus": "Open Today",
+        "badge": "Panoramic Lawn",
+        "summary": "Natural dressed-stone pillars, floor-to-ceiling tinted glass panels, rooftop lounge deck, and wide manicured green grounds bordering mature trees."
+      },
+      {
+        "id": "hp-house3",
+        "title": "Runda Executive 5-Bedroom Mansion + DSQ",
+        "neighborhood": "Runda, Nairobi",
+        "priceKes": 148000000,
+        "priceDisplay": "KES 148M",
+        "category": "Luxury Mansions",
+        "bedrooms": 5,
+        "bathrooms": 6,
+        "hasDsq": true,
+        "sizeLabel": "0.5 Acre Gated Plot",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+        "videoPoster": "images/1795296865817.jpg",
+        "photos": [
+          "images/1795296865817.jpg",
+          "images/1795296819857.jpg",
+          "images/1795296884370.jpg"
+        ],
+        "liveStatus": "Private Tour",
+        "badge": "Runda Prime",
+        "summary": "Crisp white exterior, dual solar water heating panels, covered entrance portico, perimeter wall, and generous wrap-around lawn in Runda."
+      },
+      {
+        "id": "hp-house4",
+        "title": "Karen Classic 5-Bedroom Standalone Villa",
+        "neighborhood": "Karen, Nairobi",
+        "priceKes": 110000000,
+        "priceDisplay": "KES 110M",
+        "category": "Standalone Villas",
+        "bedrooms": 5,
+        "bathrooms": 5,
+        "hasDsq": true,
+        "sizeLabel": "0.5 Acre Mature Grounds",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/e04762648fa300144bb3f155807",
+        "videoPoster": "images/1795296884370.jpg",
+        "photos": [
+          "images/1795296884370.jpg",
+          "images/1795296819857.jpg",
+          "images/1795296928069.jpg"
+        ],
+        "liveStatus": "Active Viewing",
+        "badge": "Mature Garden",
+        "summary": "Warm terracotta facade with natural stone plinth, wide bay windows, mature shade trees, and a sweeping front lawn ideal for family living."
+      },
+      {
+        "id": "hp-house5",
+        "title": "Architectural A-Frame 3-Bedroom Barn Villa",
+        "neighborhood": "Tigoni / Limuru Rd",
+        "priceKes": 46000000,
+        "priceDisplay": "KES 46M",
+        "category": "Standalone Villas",
+        "bedrooms": 3,
+        "bathrooms": 4,
+        "hasDsq": true,
+        "sizeLabel": "0.25 Acre Country Plot",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+        "videoPoster": "images/1795296928069.jpg",
+        "photos": [
+          "images/1795296928069.jpg",
+          "images/1795296884370.jpg",
+          "images/1795296956343.jpg"
+        ],
+        "liveStatus": "Open Today",
+        "badge": "Designer Facade",
+        "summary": "Striking asymmetric roofline, statement stone chimney feature, double-height triangular glazing, and warm lantern sconces in a serene setting."
+      },
+      {
+        "id": "hp-house6",
+        "title": "Gated Court 4-Bedroom Detached Maisonettes",
+        "neighborhood": "Syokimau / Mombasa Rd",
+        "priceKes": 24500000,
+        "priceDisplay": "KES 24.5M",
+        "category": "Gated Maisonettes",
+        "bedrooms": 4,
+        "bathrooms": 4,
+        "hasDsq": true,
+        "sizeLabel": "50x100 ft Private Compound",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/e04762648fa300144bb3f155807",
+        "videoPoster": "images/1795296937421.jpg",
+        "photos": [
+          "images/1795296937421.jpg",
+          "images/1795296946657.jpg",
+          "images/1795296956343.jpg"
+        ],
+        "liveStatus": "Active Viewing",
+        "badge": "Gated Court",
+        "summary": "Double-leaf wrought-iron entry gates, cabro driveway, trimmed hedge border, solar panels, and balcony frontage inside a secure controlled court."
+      },
+      {
+        "id": "hp-house7",
+        "title": "Contemporary Gated Estate 4-Bedroom Townhomes",
+        "neighborhood": "Ruiru / Kamakis",
+        "priceKes": 21000000,
+        "priceDisplay": "KES 21M",
+        "category": "Gated Maisonettes",
+        "bedrooms": 4,
+        "bathrooms": 4,
+        "hasDsq": true,
+        "sizeLabel": "40x80 ft Controlled Court",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+        "videoPoster": "images/1795296946657.jpg",
+        "photos": [
+          "images/1795296946657.jpg",
+          "images/1795296937421.jpg",
+          "images/1795296956343.jpg"
+        ],
+        "liveStatus": "Active Viewing",
+        "badge": "Fast Selling",
+        "summary": "Natural quarry-stone cladding, pitched gables, wide cabro internal roads, and clean modern lines in a fast-growing Nairobi commuter corridor."
+      },
+      {
+        "id": "hp-house8",
+        "title": "Modern Family 4-Bedroom Townhouse + Lawn",
+        "neighborhood": "Kitengela / Rongai",
+        "priceKes": 18500000,
+        "priceDisplay": "KES 18.5M",
+        "category": "Gated Maisonettes",
+        "bedrooms": 4,
+        "bathrooms": 4,
+        "hasDsq": false,
+        "sizeLabel": "40x80 ft Private Yard",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/e04762648fa300144bb3f155807",
+        "videoPoster": "images/1795296956343.jpg",
+        "photos": [
+          "images/1795296956343.jpg",
+          "images/1795296946657.jpg",
+          "images/1795296937421.jpg"
+        ],
+        "liveStatus": "Open Today",
+        "badge": "Family Lawn",
+        "summary": "Bold terracotta parapets, stone accent wall, upper balcony, paved driveway, and lush front lawn ready for immediate family occupancy."
+      },
+      {
+        "id": "hp-house9",
+        "title": "Skyview 3-Bedroom Luxury Apartments + DSQ",
+        "neighborhood": "Kilimani / Kileleshwa",
+        "priceKes": 22000000,
+        "priceDisplay": "KES 22M",
+        "category": "Apartments",
+        "bedrooms": 3,
+        "bathrooms": 3,
+        "hasDsq": true,
+        "sizeLabel": "185 sqm Spacious Layout",
+        "videoDuration": "02:00",
+        "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+        "videoPoster": "images/1795296984805.jpg",
+        "photos": [
+          "images/1795296984805.jpg",
+          "images/1795296803288.jpg",
+          "images/1795296865817.jpg"
+        ],
+        "liveStatus": "Active Viewing",
+        "badge": "Central Nairobi",
+        "summary": "High-rise residence with private balconies, landscaped courtyard with rock garden and palm feature, ample resident parking, and strong rental yield."
+      }
+    ];
+
+    let catalog = [...EMBEDDED_PROPERTIES];
+    let selectedCategory = 'All';
+    let currentModalProp = null;
+
+    function makeGoldBlackArtwork(titleText, subText) {
+      const safeTitle = String(titleText || 'HILLPOINT AGENCY LTD').replace(/[<>&"]/g, '');
+      const safeSub = String(subText || 'NAIROBI • 02:00 TOUR').replace(/[<>&"]/g, '');
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+        <defs>
+          <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#070707"/>
+            <stop offset="100%" stop-color="#1A1404"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="560" fill="url(#bgGrad)"/>
+        <rect x="22" y="22" width="756" height="516" rx="18" fill="none" stroke="#FFB000" stroke-width="3"/>
+        <polygon points="400,115 245,225 245,395 555,395 555,225" fill="#121212" stroke="#FFB000" stroke-width="3"/>
+        <polygon points="400,90 215,222 585,222" fill="#FFB000"/>
+        <rect x="372" y="295" width="56" height="100" fill="#FFB000"/>
+        <rect x="278" y="255" width="64" height="56" rx="4" fill="#1A1404" stroke="#FFB000" stroke-width="2"/>
+        <rect x="458" y="255" width="64" height="56" rx="4" fill="#1A1404" stroke="#FFB000" stroke-width="2"/>
+        <text x="400" y="445" fill="#FFC933" font-family="Georgia, serif" font-size="28" font-weight="bold" text-anchor="middle">${safeTitle}</text>
+        <text x="400" y="482" fill="#FFB000" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">${safeSub}</text>
+      </svg>`;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    function handlePhotoError(imgEl, filePath) {
+      if (imgEl.dataset.artApplied === '1') return;
+      imgEl.dataset.artApplied = '1';
+      imgEl.src = makeGoldBlackArtwork(imgEl.alt || 'Hillpoint Agency Ltd', filePath || 'images/');
+    }
+
+    async function loadCatalog() {
+      const pill = document.getElementById('jsonStatusPill');
+      try {
+        const res = await fetch('./properties.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const jsonData = await res.json();
+        if (Array.isArray(jsonData) && jsonData.length > 0) {
+          catalog = jsonData;
+          pill.textContent = 'properties.json (' + catalog.length + ' homes)';
+        }
+      } catch (e) {
+        pill.textContent = 'Catalog ready (' + catalog.length + ' homes)';
+      }
+      populateSelect();
+      renderHouses();
+      renderVideos();
+    }
+
+    function renderHouses() {
+      const grid = document.getElementById('housesGrid');
+      const list = selectedCategory === 'All'
+        ? catalog
+        : catalog.filter(item => item.category === selectedCategory);
+
+      grid.innerHTML = list.map(item => `
+        <article class="property-card">
+          <div>
+            <div class="photo-stage">
+              <img
+                src="${item.photos[0]}"
+                alt="${item.title}"
+                onerror="handlePhotoError(this, '${item.photos[0]}')"
+              />
+              <div class="badge-live">
+                <span class="live-dot"></span>
+                <span>${item.liveStatus}</span>
+              </div>
+              <div class="badge-duration">${item.videoDuration || '02:00'} VIDEO</div>
+            </div>
+            <div class="property-content">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+                <span class="section-eyebrow">${item.neighborhood}</span>
+                <span class="price-tag">${item.priceDisplay}</span>
+              </div>
+              <h3 class="font-display" style="font-size:24px;color:var(--text-main);">${item.title}</h3>
+              <p style="font-size:12px;color:var(--text-muted);">${item.summary}</p>
+              <div class="meta-row">
+                <span class="meta-chip">${item.bedrooms} Beds</span>
+                <span class="meta-chip">${item.bathrooms} Baths</span>
+                <span class="meta-chip">${item.hasDsq ? 'DSQ' : 'Compound'}</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding:0 16px 16px;">
+            <div class="card-actions" style="margin-top:0;">
+              <button type="button" onclick="openPropertyModal('${item.id}', 'video')" class="btn-dark-gold">2-Min Video &amp; Photos</button>
+              <button type="button" onclick="choosePropertyAndScroll('${item.id}')" class="btn-gold">Book on WhatsApp</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderVideos() {
+      const grid = document.getElementById('videosGrid');
+      const topVideos = catalog.slice(0, 6);
+      grid.innerHTML = topVideos.map(item => `
+        <div class="property-card">
+          <button type="button" class="video-poster-btn" onclick="openPropertyModal('${item.id}', 'video')">
+            <img
+              src="${item.videoPoster || item.photos[0]}"
+              alt="${item.title}"
+              onerror="handlePhotoError(this, '${item.videoSrc}')"
+            />
+            <div class="play-circle">▶</div>
+            <span class="badge-duration">${item.videoDuration || '02:00'}</span>
+          </button>
+          <div class="property-content">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <span class="section-eyebrow">${item.neighborhood}</span>
+              <span class="price-tag" style="font-size:15px;">${item.priceDisplay}</span>
+            </div>
+            <h3 class="font-display" style="font-size:22px;color:var(--text-main);">${item.title}</h3>
+            <button type="button" onclick="openPropertyModal('${item.id}', 'video')" class="btn-dark-gold" style="width:100%;margin-top:4px;">
+              Watch 2:00 Video &amp; View Photos
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function populateSelect() {
+      const sel = document.getElementById('houseSelect');
+      sel.innerHTML = catalog.map(item =>
+        `<option value="${item.id}">${item.title} — ${item.neighborhood} (${item.priceDisplay})</option>`
+      ).join('');
+    }
+
+    function choosePropertyAndScroll(id) {
+      const sel = document.getElementById('houseSelect');
+      if (sel) sel.value = id;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openPropertyModal(id, mode = 'video') {
+      const item = catalog.find(p => p.id === id) || catalog[0];
+      currentModalProp = item;
+
+      document.getElementById('modalMeta').textContent = `${item.neighborhood} • ${item.category}`;
+      document.getElementById('modalHeading').textContent = item.title;
+      document.getElementById('modalPrice').textContent = `${item.priceDisplay} (KES ${item.priceKes.toLocaleString()})`;
+
+      const vid = document.getElementById('modalVideo');
+      const vidSrc = document.getElementById('modalVideoSrc');
+      const missingBox = document.getElementById('videoMissingBox');
+      const hint = document.getElementById('videoFileHint');
+      const vPath = item.videoSrc;
+
+      vid.poster = item.videoPoster || item.photos[0];
+      vidSrc.src = vPath;
+      hint.textContent = `Target file: ${vPath} (02:00)`;
+      missingBox.classList.remove('show');
+
+      vid.onerror = () => missingBox.classList.add('show');
+      vidSrc.onerror = () => missingBox.classList.add('show');
+      vid.load();
+
+      const mainImg = document.getElementById('modalPhotoMain');
+      const thumbs = document.getElementById('modalThumbs');
+      mainImg.dataset.artApplied = '0';
+      mainImg.alt = item.title;
+      mainImg.src = item.photos[0];
+      mainImg.onerror = () => handlePhotoError(mainImg, item.photos[0]);
+
+      thumbs.innerHTML = item.photos.map((pPath, idx) => `
+        <button type="button" onclick="pickModalPhoto('${pPath}', ${idx})" class="thumb-btn ${idx === 0 ? 'active' : ''}">
+          <img src="${pPath}" alt="${item.title} photo ${idx + 1}" onerror="handlePhotoError(this, '${pPath}')" />
+        </button>
+      `).join('');
+
+      document.getElementById('modalBookNow').onclick = () => {
+        closePropertyModal();
+        choosePropertyAndScroll(item.id);
+      };
+
+      setModalMode(mode);
+      document.getElementById('mediaModal').classList.add('open');
+    }
+
+    function pickModalPhoto(pPath, idx) {
+      const mainImg = document.getElementById('modalPhotoMain');
+      mainImg.dataset.artApplied = '0';
+      mainImg.src = pPath;
+      mainImg.onerror = () => handlePhotoError(mainImg, pPath);
+      document.querySelectorAll('.thumb-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+      });
+    }
+
+    function setModalMode(mode) {
+      const vSec = document.getElementById('modalVideoSection');
+      const pSec = document.getElementById('modalPhotosSection');
+      const bVid = document.getElementById('btnTabVideo');
+      const bPho = document.getElementById('btnTabPhotos');
+      const vid = document.getElementById('modalVideo');
+
+      if (mode === 'video') {
+        vSec.style.display = 'block';
+        pSec.style.display = 'none';
+        bVid.className = 'filter-btn active';
+        bPho.className = 'filter-btn';
+      } else {
+        vid.pause();
+        vSec.style.display = 'none';
+        pSec.style.display = 'block';
+        bPho.className = 'filter-btn active';
+        bVid.className = 'filter-btn';
+      }
+    }
+
+    function closePropertyModal() {
+      document.getElementById('modalVideo').pause();
+      document.getElementById('mediaModal').classList.remove('open');
+    }
+
+    document.querySelectorAll('#filterBar .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedCategory = btn.dataset.cat;
+        document.querySelectorAll('#filterBar .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderHouses();
+      });
+    });
+
+    document.getElementById('bookingForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const id = document.getElementById('houseSelect').value;
+      const type = document.getElementById('bookingType').value;
+      const date = document.getElementById('bookingDate').value;
+      const note = document.getElementById('clientNote').value.trim();
+      const waNum = document.getElementById('agencyWa').value.replace(/[^0-9]/g, '') || '254700000000';
+
+      const prop = catalog.find(p => p.id === id) || catalog[0];
+      const msg = [
+        'Hello Hillpoint Agency Ltd (Nairobi),',
+        'I want to book a house viewing:',
+        `• House: ${prop.title} (${prop.neighborhood})`,
+        `• Price: ${prop.priceDisplay}`,
+        `• Type: ${type}`,
+        `• Date: ${date || 'Flexible'}`,
+        `• Name & Phone: ${name} (${phone})`,
+        note ? `• Note: ${note}` : ''
+      ].filter(Boolean).join('\n');
+
+      window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    });
+
+    document.getElementById('bookingDate').value = new Date().toISOString().split('T')[0];
+    loadCatalog();
+  </script>
+</body>
+</html>
