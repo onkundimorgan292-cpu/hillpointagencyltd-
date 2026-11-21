@@ -58,6 +58,17 @@
       border-color: rgba(255, 153, 0, 0.72);
       box-shadow: 0 18px 36px -14px rgba(255, 153, 0, 0.2);
     }
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background-color: #0A0A0A;
+      overflow: hidden;
+    }
+    .video-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body class="bg-obsidian text-slate-100 antialiased selection:bg-goldfish selection:text-black">
@@ -163,7 +174,7 @@
       <div class="lg:col-span-5">
         <div class="bg-charcoal border border-goldfish/40 rounded-2xl overflow-hidden goldfish-glow">
           <div class="relative aspect-[4/3] bg-surface overflow-hidden">
-            <img id="heroImg" src="images/14606.jpg" alt="Signature 3-Storey Glass & Stone Mansion in Lavington" class="w-full h-full object-cover" />
+            <img id="heroImg" src="images/House2.jpg" alt="Forest-Edge 5-Bedroom Villa + Rooftop Gazebo" onerror="applyPlaceholderImage(this, 'images/House2.jpg')" class="w-full h-full object-cover" />
             <div class="absolute top-3 left-3 flex items-center gap-2 px-3 py-1 rounded-full bg-obsidian/90 border border-emeraldLive/50 text-xs font-semibold text-emeraldLive">
               <span class="w-2 h-2 rounded-full bg-emeraldLive animate-pulse"></span>
               <span>LIVE AGENT READY</span>
@@ -175,19 +186,19 @@
           <div class="p-5 space-y-4">
             <div class="flex items-start justify-between gap-3">
               <div>
-                <p class="text-xs uppercase tracking-wider text-goldfish font-semibold">Featured Listing • Lavington, Nairobi</p>
-                <h2 class="font-display text-2xl font-bold text-white mt-0.5">Signature 3-Storey Glass &amp; Stone Mansion</h2>
+                <p class="text-xs uppercase tracking-wider text-goldfish font-semibold">Featured Listing • Kitisuru / Kiambu Rd</p>
+                <h2 class="font-display text-2xl font-bold text-white mt-0.5">Forest-Edge 5-Bedroom Villa + Rooftop Gazebo</h2>
               </div>
-              <span class="text-lg font-extrabold text-goldfish shrink-0">KES 135M</span>
+              <span class="text-lg font-extrabold text-goldfish shrink-0">KES 125M</span>
             </div>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              6 Beds • 7 Baths • DSQ • Full-height glass atrium and cabro driveway. Open the photo &amp; 2-minute video viewer or lock a WhatsApp viewing slot.
+              5 Beds • 6 Baths • DSQ • Stone pillars, floor-to-ceiling glass, and rooftop gazebo. Open the photo &amp; 2-minute video viewer or lock a WhatsApp viewing slot.
             </p>
             <div class="flex items-center gap-3 pt-1">
-              <button type="button" onclick="openMediaModal('hp-14606', 'video')" class="flex-1 py-2.5 px-4 rounded-xl bg-surface hover:bg-white/10 border border-goldfish/50 text-goldfish font-semibold text-xs sm:text-sm transition">
+              <button type="button" onclick="openMediaModal('hp-house2', 'video')" class="flex-1 py-2.5 px-4 rounded-xl bg-surface hover:bg-white/10 border border-goldfish/50 text-goldfish font-semibold text-xs sm:text-sm transition">
                 Play 2-Min Tour &amp; Photos
               </button>
-              <button type="button" onclick="selectPropertyForBooking('hp-14606')" class="flex-1 py-2.5 px-4 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-bold text-xs sm:text-sm transition">
+              <button type="button" onclick="selectPropertyForBooking('hp-house2')" class="flex-1 py-2.5 px-4 rounded-xl bg-goldfish hover:bg-goldfishBright text-black font-bold text-xs sm:text-sm transition">
                 Book on WhatsApp
               </button>
             </div>
@@ -345,9 +356,9 @@
         </div>
 
         <div id="videoPanel" class="space-y-3">
-          <div class="relative aspect-video bg-obsidian rounded-xl overflow-hidden border border-white/10">
-            <video id="modalVideoPlayer" controls poster="images/14606.jpg" class="w-full h-full object-cover">
-              <source id="modalVideoSource" src="videos/14606-walkthrough.mp4" type="video/mp4" />
+          <div class="video-frame rounded-xl border border-white/10">
+            <video id="modalVideoPlayer" controls poster="images/House2.jpg" class="video-player">
+              <source id="modalVideoSource" src="videos/House2-walkthrough.mp4" type="video/mp4" />
             </video>
             <div id="videoFallbackNotice" class="hidden absolute inset-0 bg-obsidian/90 flex flex-col items-center justify-center p-6 text-center space-y-2">
               <span class="px-3 py-1 rounded-full bg-goldfish/20 border border-goldfish/50 text-goldfish text-xs font-bold">2:00 WALKTHROUGH SLOT READY</span>
@@ -363,7 +374,7 @@
 
         <div id="photosPanel" class="hidden space-y-3">
           <div class="aspect-[16/10] bg-obsidian rounded-xl overflow-hidden border border-white/10">
-            <img id="modalMainPhoto" src="images/14606.jpg" alt="Property photo" class="w-full h-full object-cover" />
+            <img id="modalMainPhoto" src="images/House2.jpg" alt="Property photo" class="w-full h-full object-cover" />
           </div>
           <div id="modalThumbnails" class="flex items-center gap-2.5 overflow-x-auto pb-1"></div>
         </div>
@@ -381,7 +392,7 @@
   <script>
     const FALLBACK_PROPERTIES = [
       {
-        "id": "hp-14606",
+        "id": "hp-house1",
         "title": "Signature 3-Storey Glass & Stone Mansion",
         "neighborhood": "Lavington, Nairobi",
         "priceKes": 135000000,
@@ -392,15 +403,15 @@
         "hasDsq": true,
         "sizeLabel": "3-Storey Corner Plot",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14606-walkthrough.mp4",
-        "videoPoster": "images/14606.jpg",
-        "photos": ["images/14606.jpg", "images/14605.jpg", "images/14609.jpg"],
+        "videoSrc": "videos/House1-walkthrough.mp4",
+        "videoPoster": "images/House1.jpg",
+        "photos": ["images/House1.jpg", "images/House2.jpg", "images/House3.jpg"],
         "liveStatus": "Active Viewing",
         "badge": "Flagship Listing",
         "summary": "Triple-level modern residence featuring a full-height glass atrium, expansive cabro courtyard, rooftop terrace, and detached staff quarters in Lavington."
       },
       {
-        "id": "hp-14605",
+        "id": "hp-house2",
         "title": "Forest-Edge 5-Bedroom Villa + Rooftop Gazebo",
         "neighborhood": "Kitisuru / Kiambu Rd",
         "priceKes": 125000000,
@@ -411,15 +422,15 @@
         "hasDsq": true,
         "sizeLabel": "0.5 Acre Lush Lawn",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14605-walkthrough.mp4",
-        "videoPoster": "images/14605.jpg",
-        "photos": ["images/14605.jpg", "images/14606.jpg", "images/14610.jpg"],
+        "videoSrc": "videos/House2-walkthrough.mp4",
+        "videoPoster": "images/House2.jpg",
+        "photos": ["images/House2.jpg", "images/House1.jpg", "images/House4.jpg"],
         "liveStatus": "Open Today",
         "badge": "Panoramic Lawn",
         "summary": "Natural dressed-stone pillars, floor-to-ceiling tinted glass panels, rooftop lounge deck, and wide manicured green grounds bordering mature trees."
       },
       {
-        "id": "hp-14609",
+        "id": "hp-house3",
         "title": "Runda Executive 5-Bedroom Mansion + DSQ",
         "neighborhood": "Runda, Nairobi",
         "priceKes": 148000000,
@@ -430,15 +441,15 @@
         "hasDsq": true,
         "sizeLabel": "0.5 Acre Gated Plot",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14609-walkthrough.mp4",
-        "videoPoster": "images/14609.jpg",
-        "photos": ["images/14609.jpg", "images/14605.jpg", "images/14610.jpg"],
+        "videoSrc": "videos/House3-walkthrough.mp4",
+        "videoPoster": "images/House3.jpg",
+        "photos": ["images/House3.jpg", "images/House2.jpg", "images/House4.jpg"],
         "liveStatus": "Private Tour",
         "badge": "Runda Prime",
         "summary": "Crisp white exterior, dual solar water heating panels, covered entrance portico, perimeter wall, and generous wrap-around lawn in Runda."
       },
       {
-        "id": "hp-14610",
+        "id": "hp-house4",
         "title": "Karen Classic 5-Bedroom Standalone Villa",
         "neighborhood": "Karen, Nairobi",
         "priceKes": 110000000,
@@ -449,15 +460,15 @@
         "hasDsq": true,
         "sizeLabel": "0.5 Acre Mature Grounds",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14610-walkthrough.mp4",
-        "videoPoster": "images/14610.jpg",
-        "photos": ["images/14610.jpg", "images/14605.jpg", "images/14607.jpg"],
+        "videoSrc": "videos/House4-walkthrough.mp4",
+        "videoPoster": "images/House4.jpg",
+        "photos": ["images/House4.jpg", "images/House2.jpg", "images/House5.jpg"],
         "liveStatus": "Active Viewing",
         "badge": "Mature Garden",
         "summary": "Warm terracotta facade with natural stone plinth, wide bay windows, mature shade trees, and a sweeping front lawn ideal for family living."
       },
       {
-        "id": "hp-14607",
+        "id": "hp-house5",
         "title": "Architectural A-Frame 3-Bedroom Barn Villa",
         "neighborhood": "Tigoni / Limuru Rd",
         "priceKes": 46000000,
@@ -468,15 +479,15 @@
         "hasDsq": true,
         "sizeLabel": "0.25 Acre Country Plot",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14607-walkthrough.mp4",
-        "videoPoster": "images/14607.jpg",
-        "photos": ["images/14607.jpg", "images/14610.jpg", "images/14612.jpg"],
+        "videoSrc": "videos/House5-walkthrough.mp4",
+        "videoPoster": "images/House5.jpg",
+        "photos": ["images/House5.jpg", "images/House4.jpg", "images/House8.jpg"],
         "liveStatus": "Open Today",
         "badge": "Designer Facade",
         "summary": "Striking asymmetric roofline, statement stone chimney feature, double-height triangular glazing, and warm lantern sconces in a serene setting."
       },
       {
-        "id": "hp-14613",
+        "id": "hp-house6",
         "title": "Gated Court 4-Bedroom Detached Maisonettes",
         "neighborhood": "Syokimau / Mombasa Rd",
         "priceKes": 24500000,
@@ -487,15 +498,15 @@
         "hasDsq": true,
         "sizeLabel": "50x100 ft Private Compound",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14613-walkthrough.mp4",
-        "videoPoster": "images/14613.jpg",
-        "photos": ["images/14613.jpg", "images/14608.jpg", "images/14612.jpg"],
+        "videoSrc": "videos/House6-walkthrough.mp4",
+        "videoPoster": "images/House6.jpg",
+        "photos": ["images/House6.jpg", "images/House7.jpg", "images/House8.jpg"],
         "liveStatus": "Active Viewing",
         "badge": "Gated Court",
         "summary": "Double-leaf wrought-iron entry gates, cabro driveway, trimmed hedge border, solar panels, and balcony frontage inside a secure controlled court."
       },
       {
-        "id": "hp-14608",
+        "id": "hp-house7",
         "title": "Contemporary Gated Estate 4-Bedroom Townhomes",
         "neighborhood": "Ruiru / Kamakis",
         "priceKes": 21000000,
@@ -506,15 +517,15 @@
         "hasDsq": true,
         "sizeLabel": "40x80 ft Controlled Court",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14608-walkthrough.mp4",
-        "videoPoster": "images/14608.jpg",
-        "photos": ["images/14608.jpg", "images/14613.jpg", "images/14612.jpg"],
+        "videoSrc": "videos/House7-walkthrough.mp4",
+        "videoPoster": "images/House7.jpg",
+        "photos": ["images/House7.jpg", "images/House6.jpg", "images/House8.jpg"],
         "liveStatus": "Active Viewing",
         "badge": "Fast Selling",
         "summary": "Natural quarry-stone cladding, pitched gables, wide cabro internal roads, and clean modern lines in a fast-growing Nairobi commuter corridor."
       },
       {
-        "id": "hp-14612",
+        "id": "hp-house8",
         "title": "Modern Family 4-Bedroom Townhouse + Lawn",
         "neighborhood": "Kitengela / Rongai",
         "priceKes": 18500000,
@@ -525,15 +536,15 @@
         "hasDsq": false,
         "sizeLabel": "40x80 ft Private Yard",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14612-walkthrough.mp4",
-        "videoPoster": "images/14612.jpg",
-        "photos": ["images/14612.jpg", "images/14608.jpg", "images/14613.jpg"],
+        "videoSrc": "videos/House8-walkthrough.mp4",
+        "videoPoster": "images/House8.jpg",
+        "photos": ["images/House8.jpg", "images/House7.jpg", "images/House6.jpg"],
         "liveStatus": "Open Today",
         "badge": "Family Lawn",
         "summary": "Bold terracotta parapets, stone accent wall, upper balcony, paved driveway, and lush front lawn ready for immediate family occupancy."
       },
       {
-        "id": "hp-14611",
+        "id": "hp-house9",
         "title": "Skyview 3-Bedroom Luxury Apartments + DSQ",
         "neighborhood": "Kilimani / Kileleshwa",
         "priceKes": 22000000,
@@ -544,9 +555,9 @@
         "hasDsq": true,
         "sizeLabel": "185 sqm Spacious Layout",
         "videoDuration": "02:00",
-        "videoSrc": "videos/14611-walkthrough.mp4",
-        "videoPoster": "images/14611.jpg",
-        "photos": ["images/14611.jpg", "images/14606.jpg", "images/14609.jpg"],
+        "videoSrc": "videos/House9-walkthrough.mp4",
+        "videoPoster": "images/House9.jpg",
+        "photos": ["images/House9.jpg", "images/House1.jpg", "images/House3.jpg"],
         "liveStatus": "Active Viewing",
         "badge": "Central Nairobi",
         "summary": "High-rise residence with private balconies, landscaped courtyard with rock garden and palm feature, ample resident parking, and strong rental yield."
@@ -645,12 +656,12 @@
       const featuredVideos = properties.slice(0, 3);
       grid.innerHTML = featuredVideos.map(prop => `
         <div class="bg-obsidian border border-white/10 rounded-2xl overflow-hidden card-hover">
-          <div class="relative aspect-video bg-surface overflow-hidden group cursor-pointer" onclick="openMediaModal('${prop.id}', 'video')">
+          <div class="video-frame group cursor-pointer" onclick="openMediaModal('${prop.id}', 'video')">
             <img
               src="${prop.videoPoster || prop.photos[0]}"
               alt="${prop.title} 2-minute walkthrough"
               onerror="applyPlaceholderImage(this, '${prop.photos[0]}')"
-              class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-300"
+              class="video-player opacity-85 group-hover:scale-105 transition duration-300"
             />
             <div class="absolute inset-0 bg-black/35 flex items-center justify-center">
               <div class="w-14 h-14 rounded-full bg-goldfish text-black font-extrabold flex items-center justify-center shadow-xl">
@@ -699,8 +710,8 @@
       const videoPathLabel = document.getElementById('videoPathLabel');
 
       videoPlayer.poster = prop.videoPoster || prop.photos[0];
-      videoSource.src = prop.videoSrc || 'videos/walkthrough-2min.mp4';
-      videoPathLabel.textContent = `Source path: ./${prop.videoSrc || 'videos/walkthrough-2min.mp4'} (2:00)`;
+      videoSource.src = prop.videoSrc || 'videos/House2-walkthrough.mp4';
+      videoPathLabel.textContent = `Source path: ./${prop.videoSrc || 'videos/House2-walkthrough.mp4'} (2:00)`;
       fallbackNotice.classList.add('hidden');
 
       videoPlayer.onerror = () => fallbackNotice.classList.remove('hidden');
