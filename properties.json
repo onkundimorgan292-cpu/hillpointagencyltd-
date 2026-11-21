@@ -1,6 +1,6 @@
 [
   {
-    "id": "hp-14606",
+    "id": "hp-house1",
     "title": "Signature 3-Storey Glass & Stone Mansion",
     "neighborhood": "Lavington, Nairobi",
     "priceKes": 135000000,
@@ -11,19 +11,19 @@
     "hasDsq": true,
     "sizeLabel": "3-Storey Corner Plot",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14606-walkthrough.mp4",
-    "videoPoster": "images/14606.jpg",
+    "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+    "videoPoster": "images/1795296803288.jpg",
     "photos": [
-      "images/14606.jpg",
-      "images/14605.jpg",
-      "images/14609.jpg"
+      "images/1795296803288.jpg",
+      "images/1795296819857.jpg",
+      "images/1795296865817.jpg"
     ],
     "liveStatus": "Active Viewing",
     "badge": "Flagship Listing",
     "summary": "Triple-level modern residence featuring a full-height glass atrium, expansive cabro courtyard, rooftop terrace, and detached staff quarters in Lavington."
   },
   {
-    "id": "hp-14605",
+    "id": "hp-house2",
     "title": "Forest-Edge 5-Bedroom Villa + Rooftop Gazebo",
     "neighborhood": "Kitisuru / Kiambu Rd",
     "priceKes": 125000000,
@@ -34,19 +34,19 @@
     "hasDsq": true,
     "sizeLabel": "0.5 Acre Lush Lawn",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14605-walkthrough.mp4",
-    "videoPoster": "images/14605.jpg",
+    "videoSrc": "videos/e04762648fa300144bb3f155807",
+    "videoPoster": "images/1795296819857.jpg",
     "photos": [
-      "images/14605.jpg",
-      "images/14606.jpg",
-      "images/14610.jpg"
+      "images/1795296819857.jpg",
+      "images/1795296803288.jpg",
+      "images/1795296884370.jpg"
     ],
     "liveStatus": "Open Today",
     "badge": "Panoramic Lawn",
     "summary": "Natural dressed-stone pillars, floor-to-ceiling tinted glass panels, rooftop lounge deck, and wide manicured green grounds bordering mature trees."
   },
   {
-    "id": "hp-14609",
+    "id": "hp-house3",
     "title": "Runda Executive 5-Bedroom Mansion + DSQ",
     "neighborhood": "Runda, Nairobi",
     "priceKes": 148000000,
@@ -57,19 +57,19 @@
     "hasDsq": true,
     "sizeLabel": "0.5 Acre Gated Plot",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14609-walkthrough.mp4",
-    "videoPoster": "images/14609.jpg",
+    "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+    "videoPoster": "images/1795296865817.jpg",
     "photos": [
-      "images/14609.jpg",
-      "images/14605.jpg",
-      "images/14610.jpg"
+      "images/1795296865817.jpg",
+      "images/1795296819857.jpg",
+      "images/1795296884370.jpg"
     ],
     "liveStatus": "Private Tour",
     "badge": "Runda Prime",
     "summary": "Crisp white exterior, dual solar water heating panels, covered entrance portico, perimeter wall, and generous wrap-around lawn in Runda."
   },
   {
-    "id": "hp-14610",
+    "id": "hp-house4",
     "title": "Karen Classic 5-Bedroom Standalone Villa",
     "neighborhood": "Karen, Nairobi",
     "priceKes": 110000000,
@@ -80,19 +80,19 @@
     "hasDsq": true,
     "sizeLabel": "0.5 Acre Mature Grounds",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14610-walkthrough.mp4",
-    "videoPoster": "images/14610.jpg",
+    "videoSrc": "videos/e04762648fa300144bb3f155807",
+    "videoPoster": "images/1795296884370.jpg",
     "photos": [
-      "images/14610.jpg",
-      "images/14605.jpg",
-      "images/14607.jpg"
+      "images/1795296884370.jpg",
+      "images/1795296819857.jpg",
+      "images/1795296928069.jpg"
     ],
     "liveStatus": "Active Viewing",
     "badge": "Mature Garden",
     "summary": "Warm terracotta facade with natural stone plinth, wide bay windows, mature shade trees, and a sweeping front lawn ideal for family living."
   },
   {
-    "id": "hp-14607",
+    "id": "hp-house5",
     "title": "Architectural A-Frame 3-Bedroom Barn Villa",
     "neighborhood": "Tigoni / Limuru Rd",
     "priceKes": 46000000,
@@ -103,19 +103,19 @@
     "hasDsq": true,
     "sizeLabel": "0.25 Acre Country Plot",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14607-walkthrough.mp4",
-    "videoPoster": "images/14607.jpg",
+    "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+    "videoPoster": "images/1795296928069.jpg",
     "photos": [
-      "images/14607.jpg",
-      "images/14610.jpg",
-      "images/14612.jpg"
+      "images/1795296928069.jpg",
+      "images/1795296884370.jpg",
+      "images/1795296956343.jpg"
     ],
     "liveStatus": "Open Today",
     "badge": "Designer Facade",
     "summary": "Striking asymmetric roofline, statement stone chimney feature, double-height triangular glazing, and warm lantern sconces in a serene setting."
   },
   {
-    "id": "hp-14613",
+    "id": "hp-house6",
     "title": "Gated Court 4-Bedroom Detached Maisonettes",
     "neighborhood": "Syokimau / Mombasa Rd",
     "priceKes": 24500000,
@@ -126,19 +126,19 @@
     "hasDsq": true,
     "sizeLabel": "50x100 ft Private Compound",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14613-walkthrough.mp4",
-    "videoPoster": "images/14613.jpg",
+    "videoSrc": "videos/e04762648fa300144bb3f155807",
+    "videoPoster": "images/1795296937421.jpg",
     "photos": [
-      "images/14613.jpg",
-      "images/14608.jpg",
-      "images/14612.jpg"
+      "images/1795296937421.jpg",
+      "images/1795296946657.jpg",
+      "images/1795296956343.jpg"
     ],
     "liveStatus": "Active Viewing",
     "badge": "Gated Court",
     "summary": "Double-leaf wrought-iron entry gates, cabro driveway, trimmed hedge border, solar panels, and balcony frontage inside a secure controlled court."
   },
   {
-    "id": "hp-14608",
+    "id": "hp-house7",
     "title": "Contemporary Gated Estate 4-Bedroom Townhomes",
     "neighborhood": "Ruiru / Kamakis",
     "priceKes": 21000000,
@@ -149,19 +149,19 @@
     "hasDsq": true,
     "sizeLabel": "40x80 ft Controlled Court",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14608-walkthrough.mp4",
-    "videoPoster": "images/14608.jpg",
+    "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+    "videoPoster": "images/1795296946657.jpg",
     "photos": [
-      "images/14608.jpg",
-      "images/14613.jpg",
-      "images/14612.jpg"
+      "images/1795296946657.jpg",
+      "images/1795296937421.jpg",
+      "images/1795296956343.jpg"
     ],
     "liveStatus": "Active Viewing",
     "badge": "Fast Selling",
     "summary": "Natural quarry-stone cladding, pitched gables, wide cabro internal roads, and clean modern lines in a fast-growing Nairobi commuter corridor."
   },
   {
-    "id": "hp-14612",
+    "id": "hp-house8",
     "title": "Modern Family 4-Bedroom Townhouse + Lawn",
     "neighborhood": "Kitengela / Rongai",
     "priceKes": 18500000,
@@ -172,19 +172,19 @@
     "hasDsq": false,
     "sizeLabel": "40x80 ft Private Yard",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14612-walkthrough.mp4",
-    "videoPoster": "images/14612.jpg",
+    "videoSrc": "videos/e04762648fa300144bb3f155807",
+    "videoPoster": "images/1795296956343.jpg",
     "photos": [
-      "images/14612.jpg",
-      "images/14608.jpg",
-      "images/14613.jpg"
+      "images/1795296956343.jpg",
+      "images/1795296946657.jpg",
+      "images/1795296937421.jpg"
     ],
     "liveStatus": "Open Today",
     "badge": "Family Lawn",
     "summary": "Bold terracotta parapets, stone accent wall, upper balcony, paved driveway, and lush front lawn ready for immediate family occupancy."
   },
   {
-    "id": "hp-14611",
+    "id": "hp-house9",
     "title": "Skyview 3-Bedroom Luxury Apartments + DSQ",
     "neighborhood": "Kilimani / Kileleshwa",
     "priceKes": 22000000,
@@ -195,12 +195,12 @@
     "hasDsq": true,
     "sizeLabel": "185 sqm Spacious Layout",
     "videoDuration": "02:00",
-    "videoSrc": "videos/14611-walkthrough.mp4",
-    "videoPoster": "images/14611.jpg",
+    "videoSrc": "videos/c9cedd0de4ac3b3beb64f4e04",
+    "videoPoster": "images/1795296984805.jpg",
     "photos": [
-      "images/14611.jpg",
-      "images/14606.jpg",
-      "images/14609.jpg"
+      "images/1795296984805.jpg",
+      "images/1795296803288.jpg",
+      "images/1795296865817.jpg"
     ],
     "liveStatus": "Active Viewing",
     "badge": "Central Nairobi",
